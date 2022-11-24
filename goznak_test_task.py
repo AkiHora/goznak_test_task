@@ -1,10 +1,18 @@
-# Импортируем стандартную (не дополнительную) библиотеку math 
-# для расчета произведения массива
-import math
+def prod(array):
+    """
+    Перемножение элементов массива
+    """
+    res = 1
+    for a in array:
+        res *= a
+    return res
 
 def multiplicate(A):
+    """
+    Расчет произведения всех чисел массива кроме i-го для i-го числа
+    """
     # Расчет произведения для i-го числа 
-    prod_A_except = lambda i: math.prod(A[:i] + A[i+1:])
+    prod_A_except = lambda i: prod(A[:i] + A[i+1:])
     
     # Применение функции prod_A_except ко всем числам A
     return list(map(prod_A_except, range(len(A))))
